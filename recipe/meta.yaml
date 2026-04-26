@@ -1,5 +1,5 @@
 {% set name = "diptest" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/diptest-{{ version }}.tar.gz
-  sha256: c1384cd2ba67d97024cc964a86e5b083a33ca9e25d60f79f30ae2676460e4c3d
+  sha256: cd74d61d4e2620aa4c40900b7ff0ff48b7517fd00871c9066f737ba4081b2f81
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
@@ -22,7 +22,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake >=3.16
     - make                                 # [not win]
-    - setuptools <81 
+    - setuptools <81
   host:
     - python
     - pip
