@@ -10,7 +10,9 @@ source:
   sha256: cd74d61d4e2620aa4c40900b7ff0ff48b7517fd00871c9066f737ba4081b2f81
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - set "CXXFLAGS=%CXXFLAGS% /openmp:llvm"  # [win]
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
@@ -27,8 +29,8 @@ requirements:
     - python
     - pip
     - pybind11
-    - libgomp                              # [not osx]
-    - llvm-openmp                          # [osx]
+    - libgomp      # [linux]
+    - llvm-openmp  # [not linux]
     - scikit-build-core >=0.3.3
   run:
     - python
