@@ -28,13 +28,12 @@ requirements:
   host:
     - python
     - pip
-    - pybind11
+    - pybind11 >=2.13
     - libgomp      # [linux]
     - llvm-openmp  # [not linux]
     - scikit-build-core >=0.3.3
   run:
     - python
-    - psutil
     - numpy >=1.18
 
 test:
